@@ -56,8 +56,9 @@ fi;
 
 shopt -s extglob
 build_num="${build_num##*( )}"
+time=`date +%m/%d/%H:%M:%S`
 shopt -u extglob
-caption="V(${version})_B($build_num)\n${branch}\n${commit}"
+caption="V(${version})_B($build_num)\n${branch}\n${commit}\n${time}"
 
 echo $caption
 
@@ -75,7 +76,7 @@ target_path=$base_path
 width=`identify -format %w ${base_path}`
 height=`identify -format %h ${base_path}`
 
-band_height=$((($height * 47) / 100))
+band_height=$((($height * 97) / 100))
 band_position=$(($height - $band_height))
 text_position=$(($band_position - 3))
 point_size=$(((13 * $width) / 100))
